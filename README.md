@@ -34,3 +34,9 @@ Dockerをインストールしたサーバに`root`でログインし、以下�
 ```
 curl https://raw.githubusercontent.com/magic3org/oneliner-install-with-docker/master/script/build_env.sh | bash
 ```
+
+## インストーラ
+
+環境構築後はMagic3のインストーラを実行します。
+
+http://[IPアドレス]/admin
