@@ -64,6 +64,13 @@ else
     exit 1
 fi
 
+# Check Docker installed
+if !(type "docker" > /dev/null 2>&1); then
+    echo "Docker not installed."
+    echo "Docker installer is available: https://github.com/czbone/oneliner-docker"
+    exit 1
+fi
+
 echo "########################################################################"
 echo "# $DIST_NAME"
 echo "# START BUILDING ENVIRONMENT"
