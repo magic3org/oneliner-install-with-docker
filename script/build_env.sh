@@ -16,7 +16,6 @@
 readonly GITHUB_USER="magic3org"
 readonly GITHUB_REPO="oneliner-install-with-docker"
 readonly WORK_DIR=/root/${GITHUB_REPO}_work
-readonly PLAYBOOK="docker_env"
 
 # check root user
 readonly USERID=`id | sed 's/uid=\([0-9]*\)(.*/\1/'`
@@ -159,6 +158,6 @@ mv ${destdirname} ${GITHUB_REPO}
 echo ${filename}" unarchived"
 
 # launch ansible
-cd ${WORK_DIR}/${GITHUB_REPO}/playbooks/${PLAYBOOK}
+cd ${WORK_DIR}/${GITHUB_REPO}/playbooks
 ansible-galaxy install --role-file=requirements.yml --roles-path=/etc/ansible/roles --force
 ansible-playbook -i localhost, main.yml

@@ -1,0 +1,10 @@
+[mysqld]
+character-set-client-handshake = FALSE
+character-set-server = utf8mb4
+collation-server = utf8mb4_unicode_ci
+#collation-server=utf8mb4_general_ci
+#collation-server=utf8mb4_ja_0900_as_cs
+sql_mode=ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
+
+[client]
+default-character-set = utf8mb4

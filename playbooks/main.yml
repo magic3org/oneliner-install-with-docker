@@ -1,0 +1,13 @@
+- hosts: localhost
+  connection: local
+
+  tasks:
+    - name: Build container
+      shell: |
+        mkdir -p /var/www/html
+        docker build -t magic3:latest ./containers &&
+        docker run -d --name magic3 -p 80:80 \
+          -e MYSQL_DATABASE=magic3db \
+          -e MYSQL_USER=magic3_user \
+          -e MYSQL_PASSWORD=magic3_password \
+          --restart=always -v /var/www/html:/var/www/html magic3:latest
