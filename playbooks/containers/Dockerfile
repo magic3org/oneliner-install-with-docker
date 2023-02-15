@@ -5,7 +5,6 @@ RUN apk add --no-cache \
     git
 
 # Install PHP module
-#RUN docker-php-ext-install mysqli pdo pdo_mysql
 RUN docker-php-ext-install pdo_mysql
 
 # Install PHP GD module

@@ -44,12 +44,22 @@ if [ ! -f "/run/mysqld/.init" ]; then
 fi
 
 # Download Magic3 source
-cd /var/www/html
-git clone --depth 1 https://github.com/magic3org/magic3.git
-chown -R www-data:www-data magic3
+## latest version
+# cd /var/www/html
+# git clone --depth 1 https://github.com/magic3org/magic3.git
+# chown -R www-data:www-data magic3
+# mv magic3 public
 
-# Setup Magic3
-cat <<_EOT_ > magic3/${MAGIC3_INSTALL_DEF_PATH}
+## last tagged version
+cd /var/www/html
+REPO=https://github.com/magic3org/magic3.git && \
+git clone $REPO --single-branch --branch \
+$(git ls-remote --tags --refs --sort="v:refname" $REPO | tail -n1 | cut -d/ -f3)
+chown -R www-data:www-data magic3
+mv magic3 public
+
+# Configure install param
+cat <<_EOT_ > public/${MAGIC3_INSTALL_DEF_PATH}
 <?php
 define('M3_INSTALL_ADMIN_SERVER', false);
 define('M3_INSTALL_PRE_FIXED_DB', true);

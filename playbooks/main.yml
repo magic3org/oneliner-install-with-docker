@@ -1,13 +1,56 @@
-- hosts: localhost
-  connection: local
+- hosts: all
+  become: true
+  vars_files:
+
+  vars:
+
+  roles:
+
+  pre_tasks:
 
   tasks:
+    - name: install minimal command
+      apt:
+        name:
+          - zip
+          - unzip
+
+    - name: Add Docker GPG apt Key
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+
+    - name: Add Docker Repository
+      apt_repository:
+        repo: deb https://download.docker.com/linux/ubuntu focal stable
+        state: present
+
+    - name: Install Docker module
+      apt:
+        name:
+          - docker-ce
+          - docker-ce-cli
+          - docker-compose-plugin
+
+    - name: Start Docker
+      service:
+        name: 'docker'
+        state: started
+        enabled: true
+
+    - name: Create Magic3 config directory
+      file:
+        path: /var/magic3
+        state: directory
+        owner: root
+        group: root
+        mode: '0755'
+
     - name: Build container
       shell: |
-        mkdir -p /var/www/html
         docker build -t magic3:latest ./containers &&
         docker run -d --name magic3 -p 80:80 \
           -e MYSQL_DATABASE=magic3db \
           -e MYSQL_USER=magic3_user \
           -e MYSQL_PASSWORD=magic3_password \
-          --restart=always -v /var/www/html:/var/www/html magic3:latest
+          --restart=always -v /var/magic3:/var/www/html magic3:latest
