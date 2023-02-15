@@ -22,7 +22,6 @@ if [ ! -f "/run/mysqld/.init" ]; then
   mysql_install_db --user=mysql --datadir=/var/lib/mysql
 
   if [ -n "$MYSQL_DATABASE" ]; then
-    #echo "CREATE DATABASE IF NOT EXISTS $MYSQL_DATABASE CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;" >> $SQL
     echo "CREATE DATABASE IF NOT EXISTS $MYSQL_DATABASE;" >> $SQL
   fi
 
@@ -42,13 +41,6 @@ if [ ! -f "/run/mysqld/.init" ]; then
   rm -rf ~/.mysql_history ~/.ash_history $SQL
   touch /run/mysqld/.init
 fi
-
-# Download Magic3 source
-## latest version
-# cd /var/www/html
-# git clone --depth 1 https://github.com/magic3org/magic3.git
-# chown -R www-data:www-data magic3
-# mv magic3 public
 
 ## last tagged version
 cd /var/www/html
