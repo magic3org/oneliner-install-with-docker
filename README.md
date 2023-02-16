@@ -43,4 +43,4 @@ curl https://raw.githubusercontent.com/magic3org/oneliner-install-with-docker/ma
 
 http://[IPアドレス]/admin
 
-![インストールドキュメント](http://doc.magic3.org/index.php?%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%2F%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%A9)
+[インストールドキュメント](http://doc.magic3.org/index.php?%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%2F%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%A9)
