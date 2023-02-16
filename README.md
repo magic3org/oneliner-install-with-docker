@@ -1,6 +1,7 @@
 # Magic3サーバ構築
 
-DockerコンテナベースのMagic3サーバ環境を構築します。
+1行コマンドを実行するだけで、即座にMagic3が使える環境ができます。
+DockerコンテナベースのMagic3サーバです。
 
 ## 前提
 
@@ -23,7 +24,8 @@ https://github.com/czbone/oneliner-docker
 
 # 内容
 
-DockerコンテナにMagic3が動作するLEMP環境を構築し、Magic3の最新を配置してインストーラが実行できるところまで準備を整えます。
+DockerコンテナにMagic3が動作するLEMP環境を構築し、Magic3の最新を配置してインストーラが実行できるところまで構築します。
+その後、インストーラを使ってインストール処理を完了させます。
 
 # 使い方
 
@@ -40,3 +42,5 @@ curl https://raw.githubusercontent.com/magic3org/oneliner-install-with-docker/ma
 環境構築後はMagic3のインストーラを実行します。
 
 http://[IPアドレス]/admin
+
+[インストールドキュメント](http://doc.magic3.org/index.php?%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%2F%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%A9)
